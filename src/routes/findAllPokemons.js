@@ -2,8 +2,7 @@ const { Pokemon } = require("../db/sequelize"); // on importe le model
 const { Op } = require("sequelize"); // opérateur de sequelize
 const auth = require('../auth/auth')
 
-module.exports = (app) => {
-  // on exporte une fonction qui prend en paramètre l'application express
+module.exports = (app) => {  // on exporte une fonction qui prend en paramètre l'application express
   app.get("/api/pokemons", auth, (req, res) => {
     if (req.query.name) {
       const name = req.query.name;
