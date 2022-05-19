@@ -1,5 +1,4 @@
 const express = require('express');
-const morgan = require('morgan') // middleware morgan log
 const favicon = require('serve-favicon') // middleware serve-favicon
 const bodyParser = require('body-parser')
 const sequelize = require('./src/db/sequelize')
@@ -10,7 +9,6 @@ const port = 3000;
 // Pour setup les middlewares dans express: app.use(middleware)
 app
     .use(favicon(__dirname + '/favicon.ico'))
-    .use(morgan('dev')) // paramètre dev pour un log concis servant au développement. 
     .use(bodyParser.json()) // on parse toutes les données entrantes vers l'api rest
 
 sequelize.initDb() 

@@ -15,11 +15,6 @@ Quand utiliser Node.js
 
 Pour les Middleware installés, next() est automatiquement exécuté.
 
-- ```npm install morgan --save-dev``` // middleware pour logger requete
-- ```js
-    const morgan = require('morgan')
-    ```
-
 - ```npm install body-parser --save``` // pour parser toutes les données entrante
 - ```js
     const bodyParser = require('body-parser')
@@ -62,3 +57,44 @@ JWT = json web token
 A une durée de validité dans le temps
 
 - ```npm install jsonwebtoken --save```
+
+### Deploiement / avec heroku
+
+Download heroku CLI
+
+Se connecter
+- ```heroku login```
+
+- ```const port = process.env.PORT || 3000;```
+
+- Changer scripts 
+```json
+    "start": "NODE_ENV=production node app.js",
+    "dev": "NODE_ENV=development nodemon app.js
+```
+
+- Enlever les dépendances inutiles
+
+- git init
+- git add .
+- heroku create
+- git push heroku master // heroku open pour aller sur l'adresse
+
+- heroku logs --tail pour voir les logs de notre application
+
+- Depuis l'interface, installer JawsMaria
+
+- Récuperer les informations de notre BDD, pour modifier sequelize.js
+- Enlever sync({force: true}), pour des raisons évidentes
+
+- ```npm install cors --save```
+
+Dans app.js :
+
+```js
+const cors = require('cors')
+
+app.use(cors())
+```
+
+- git add . / git commit -m / gut push heroku master
