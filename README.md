@@ -70,7 +70,7 @@ Se connecter
 - Changer scripts 
 ```json
     "start": "NODE_ENV=production node app.js",
-    "dev": "NODE_ENV=development nodemon app.js
+    "dev": "NODE_ENV=development nodemon app.js"
 ```
 
 - Enlever les dépendances inutiles
